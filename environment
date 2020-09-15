@@ -3,9 +3,16 @@ I use tmux to spawn different shells and create multiple panes lying around.
 I have each one configured for my own use.
 
 
+Required software:
+=============
+
+vim
+emacs
+tmux
+
+
 Setting up the environment:
 =========
-
 
 1. move the vim_config.vimrc file to your home directory and rename it to .vimrc
 2. move the emacs_config file to your home directory and rename it to .emacs
