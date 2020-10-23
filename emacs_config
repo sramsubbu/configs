@@ -23,11 +23,12 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes nil)
- '(org-agenda-files (quote ("~/notes/orgmode/manual.org")))
+ '(org-agenda-files nil)
  '(org-babel-load-languages (quote ((emacs-lisp . t) (python . t))))
+ '(org-src-preserve-indentation t)
  '(package-selected-packages
    (quote
-    (magit flycheck rust-mode markdown-mode elpy cider clojure-mode gnu-elpa-keyring-update))))
+    (yaml-mode haskell-mode pipenv cargo flycheck-rust racer magit flycheck rust-mode markdown-mode elpy cider clojure-mode gnu-elpa-keyring-update))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -38,5 +39,18 @@
 (global-linum-mode t)
 
 ;; Load adwaita theme when the emacs is opened in a terminal
-(if (not (display-graphic-p))
-    (load-theme 'adwaita t))
+;; (if (not (display-graphic-p))
+;;     (load-theme 'adwaita t))
+;; Going with the zenburn theme for now. 
+(use-package zenburn-theme
+	     :ensure t
+	     :config
+	     (load-theme 'zenburn t))
+
+
+(add-hook 'rust-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))
+
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+(put 'downcase-region 'disabled nil)
