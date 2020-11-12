@@ -28,7 +28,7 @@
  '(org-src-preserve-indentation t)
  '(package-selected-packages
    (quote
-    (yaml-mode haskell-mode pipenv cargo flycheck-rust racer magit flycheck rust-mode markdown-mode elpy cider clojure-mode gnu-elpa-keyring-update))))
+    (nim-mode tuareg yaml-mode haskell-mode pipenv cargo flycheck-rust racer magit flycheck rust-mode markdown-mode elpy cider clojure-mode gnu-elpa-keyring-update))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -54,3 +54,6 @@
 
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (put 'downcase-region 'disabled nil)
+
+
+;; Set ido mode for C-x C-f menu and others
